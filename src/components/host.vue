@@ -18,13 +18,13 @@
       <div @click="num = 2" class="every">待审核</div>
     </div>
     <div id="main">
-      <Son1 v-show="num = 0"/>
-      <Son2 v-show="num = 1"/>
-      <Son3 v-show="num = 2"/>
+      <Son1 v-show="num === 0"/>
+      <Son2 v-show="num === 1"/>
+      <Son3 v-show="num === 2"/>
       
     </div>
     <div class="footer">
-      <div class="footer-text" >
+      <div class="footer-text" @click="wancheng" >
         <i class="iconfont icon-wancheng"></i>
         日常检查
       </div>
@@ -128,11 +128,6 @@ export default {
     Son2,
     Son3
   },
-  components:{
-    Son1,
-    Son2,
-    Son3
-  },
   methods: {
     click() {
       this.$router.push({ path: "/add" });
@@ -143,7 +138,11 @@ export default {
     showPopup() {
       this.show = true;
     },
-
+    wancheng(){
+      this.$router.push({
+        path: '/routine'
+      })
+    },
     active(key) {
       for (let i in this.page) {
         this.page[i].flag = false;
@@ -203,6 +202,8 @@ export default {
       color: #9f9f9f;
     }
   }
+}
+
   .top {
     justify-content: space-evenly !important;
     margin: 0px !important;
@@ -295,6 +296,7 @@ export default {
     }
   }
   .footer {
+    z-index: 100;
     height: 30px;
     background: #f6f6f6;
     display: flex;
@@ -354,6 +356,5 @@ export default {
     bottom: 30px !important;
     left: 0;
   }
-}
 }
 </style>

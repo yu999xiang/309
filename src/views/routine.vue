@@ -31,11 +31,13 @@ export default {
   components: { RoutineTree },
   data() {
     return {
-      back: '',
       show:'',
     }
   },
    methods: {
+     back(){
+       this.$router.go(-1)
+     },
     active1: function () {
       this.show = 1
     },

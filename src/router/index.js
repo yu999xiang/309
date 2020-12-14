@@ -47,6 +47,11 @@ const routes = [
     path: '/operation',
     name: 'Operation',
     component: () => import(/* webpackChunkName: "about" */ '../components/operation.vue')
+  },
+  {
+    path: '/routine',
+    name: 'Routine',
+    component: () => import(/* webpackChunkName: "about" */ '../views/routine.vue')
   }
 ]
 
