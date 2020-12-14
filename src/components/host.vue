@@ -29,7 +29,7 @@
           <i class="iconfont icon-jia"></i>
         </div>
       </div>
-      <div class="footer-text">
+      <div class="footer-text" @click="fengkuan">
         <i class="iconfont icon-fengkuangdaqiqiu"></i>
         吊装作业
       </div>
@@ -53,6 +53,10 @@ export default {
     click(){
       this.$router.push({path:'/add'})
     },
+    fengkuan(){
+      this.$router.push({path:'/operation'})
+
+    }
   }
 }
 </script>
