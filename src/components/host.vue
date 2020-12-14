@@ -75,7 +75,7 @@
       </div>
       <nut-buttongroup style="position:absolute,bottom:0">
         <nut-button type="light" style="background: #eee"> 重置 </nut-button>
-        <nut-button @click="sure"> 确定 </nut-button>
+        <nut-button> 确定 </nut-button>
       </nut-buttongroup>
     </nut-popup>
   </div>
@@ -90,22 +90,70 @@ export default {
     return {
       val:'',
       inputName: '',
-      num: 0
+      num: 0 ,
+         show: false,
+      page: {
+        str: {
+          name: "未申报",
+          flag: false,
+        },
+        str1: {
+          name: "待审核",
+          flag: false,
+        },
+        str2: {
+          name: "使用中",
+          flag: false,
+        },
+        str3: {
+          name: "已停用",
+          flag: false,
+        },
+        str4: {
+          name: "正在维保",
+          flag: false,
+        },
+        str5: {
+          name: "已退场",
+          flag: false,
+        },
+      },
+      arr1: ["特种机械", "大型机械", "其他机械"],
+      arr2: ["自有", "租赁", "分包自带"],
+    };
+    },
+  components:{
+    Son1,
+    Son2,
+    Son3
+  },
+  methods: {
+    click() {
+      this.$router.push({ path: "/add" });
+    },
+
+    showPopup() {
+      this.show = true;
+    },
+
+    active(key) {
+      for(let i in this.page){
+      this.page[i].flag = false
+      }
+      this.val =  this.page[key].name
+      this.page[key].flag = true
+    },
+    click(){
+      this.$router.push({path:'/add'})
+    },
+    fengkuan(){
+      this.$router.push({path:'/operation'})
     }
   },
   components:{
     Son1,
     Son2,
     Son3
-  },
-  methods:{
-    click(){
-      this.$router.push({path:'/add'})
-    },
-    fengkuan(){
-      this.$router.push({path:'/operation'})
-
-    }
   },
 };
 </script>
@@ -140,6 +188,8 @@ export default {
     }
     .iconfont {
       color: #f6f6f6;
+    .iconfont{
+      color: #9f9f9f;
     }
   }
   .top {
@@ -293,5 +343,6 @@ export default {
     bottom: 30px !important;
     left: 0;
   }
+}
 }
 </style>
