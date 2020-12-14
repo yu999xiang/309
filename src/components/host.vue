@@ -15,8 +15,12 @@
     <div class="top">
       <div @click="num = 0" class="active every">全部</div>
       <div @click="num = 1" class="every">未申报</div>
+<<<<<<< HEAD
       <div @click="num = 2" class="every">待审核</div>
     </div>
+=======
+      <div @click="num = 2" class="every">待审核</div>    </div>
+>>>>>>> 8380c99834188a164728b4e744b9eb0e7ecb106f
     <div id="main">
       <Son1 v-show="num === 0"/>
       <Son2 v-show="num === 1"/>
