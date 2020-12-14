@@ -18,9 +18,8 @@
       <div @click="num = 2" class="every">待审核</div>
     </div>
     <div id="main">
-      <Son1 v-show="num === 0"/>
-      <Son2 v-show="num === 1"/>
-      <Son3 v-show="num === 2"/>
+      <Son1 />
+      
     </div>
     <div class="footer">
       <div class="footer-text" >
@@ -90,6 +89,7 @@ export default {
     return {
       val: "",
       show: false,
+      num: 0,
       page: {
         str: {
           name: "未申报",
@@ -137,9 +137,15 @@ export default {
       this.val = this.page[key].name;
       this.page[key].flag = true;
     },
+<<<<<<< HEAD
     sure() {
       this.show = false;
     },
+=======
+    sure(){
+      this.show = false
+    }
+>>>>>>> 3adbce47d3e0bd1f27e565ee01c3cb50a58f888e
   },
 };
 </script>
