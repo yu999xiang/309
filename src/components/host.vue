@@ -132,9 +132,6 @@ export default {
     click() {
       this.$router.push({ path: "/add" });
     },
-    fengkuan(){
-      this.$router.push({ path: "/operation" });
-    },
     showPopup() {
       this.show = true;
     },
