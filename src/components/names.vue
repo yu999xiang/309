@@ -40,7 +40,6 @@ export default {
         id: this.id
       })
       this.list = data.data.data.result.records
-      console.log(data.data.data.result.records);
       this.list.forEach((item) => {
         this.switches[item.name] = true
       })

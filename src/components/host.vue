@@ -18,9 +18,8 @@
       <div @click="num = 2" class="every">待审核</div>
     </div>
     <div id="main">
-      <Son1 v-show="num === 0"/>
-      <Son2 v-show="num === 1"/>
-      <Son3 v-show="num === 2"/>
+      <Son1 />
+      
     </div>
     <div class="footer">
       <div class="footer-text" >
