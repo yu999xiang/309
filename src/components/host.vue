@@ -13,11 +13,7 @@
       <div class="every">待审核</div>
     </div>
     <div id="main">
-<<<<<<< HEAD
       <Son1 />
-=======
-      
->>>>>>> 56c441b11986f94ef345039c136d5a022f2c1990
     </div>
     <div class="footer">
       <div class="footer-text" >
