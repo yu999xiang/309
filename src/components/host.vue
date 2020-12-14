@@ -8,16 +8,14 @@
       <i class="iconfont icon-loudou"></i>
     </div>
     <div class="top">
-      <div class="active every">全部</div>
-      <div class="every">未申报</div>
-      <div class="every">待审核</div>
+      <div @click="num = 0" class="active every">全部</div>
+      <div @click="num = 1" class="every">未申报</div>
+      <div @click="num = 2" class="every">待审核</div>
     </div>
     <div id="main">
-<<<<<<< HEAD
-      <Son1 />
-=======
-      
->>>>>>> 56c441b11986f94ef345039c136d5a022f2c1990
+      <Son1 v-show="num === 0"/>
+      <Son2 v-show="num === 1"/>
+      <Son3 v-show="num === 2"/>
     </div>
     <div class="footer">
       <div class="footer-text" >
@@ -39,15 +37,20 @@
 
 <script>
 import Son1 from './host-son/son1'
+import Son2 from './host-son/son2'
+import Son3 from './host-son/son3'
 export default {
   data(){
     return {
       val:'',
-      inputName: ''
+      inputName: '',
+      num: 0
     }
   },
   components:{
-    Son1
+    Son1,
+    Son2,
+    Son3
   },
   methods:{
     click(){
