@@ -14,7 +14,7 @@
     </div>
     <div id="main"></div>
     <div class="footer">
-      <div class="footer-text">
+      <div class="footer-text" @click="routione">
         <i class="iconfont icon-wancheng"></i>
         日常检查
       </div>
@@ -41,6 +41,9 @@ export default {
   methods:{
     click(){
       this.$router.push({path:'/add'})
+    },
+    routione(){
+      this.$router.push({ name: 'routine', params: { userId: '123' }})
     }
   }
 }
