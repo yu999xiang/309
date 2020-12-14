@@ -15,12 +15,8 @@
     <div class="top">
       <div @click="num = 0" class="active every">全部</div>
       <div @click="num = 1" class="every">未申报</div>
-<<<<<<< HEAD
       <div @click="num = 2" class="every">待审核</div>
     </div>
-=======
-      <div @click="num = 2" class="every">待审核</div>    </div>
->>>>>>> 8380c99834188a164728b4e744b9eb0e7ecb106f
     <div id="main">
       <Son1 />
       
@@ -91,7 +87,6 @@ import Son3 from './host-son/son3'
 export default {
   data() {
     return {
-<<<<<<< HEAD
       val: "",
       show: false,
       page: {
@@ -140,25 +135,6 @@ export default {
     },
     sure(){
       this.show = false
-=======
-      val:'',
-      inputName: '',
-      num: 0
-    }
-  },
-  components:{
-    Son1,
-    Son2,
-    Son3
-  },
-  methods:{
-    click(){
-      this.$router.push({path:'/add'})
-    },
-    fengkuan(){
-      this.$router.push({path:'/operation'})
-
->>>>>>> f7a4b9bdfaff26b2cb1edd8b8b82f2e22235b499
     }
   },
 };
@@ -192,13 +168,8 @@ export default {
         border-radius: 50px;
       }
     }
-<<<<<<< HEAD
     .iconfont {
       color: #f6f6f6;
-=======
-    .iconfont{
-      color: #9f9f9f;
->>>>>>> f7a4b9bdfaff26b2cb1edd8b8b82f2e22235b499
     }
   }
   .top {
