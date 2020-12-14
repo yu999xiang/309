@@ -12,7 +12,9 @@
       <div class="every">未申报</div>
       <div class="every">待审核</div>
     </div>
-    <div id="main"></div>
+    <div id="main">
+      <Son1 />
+    </div>
     <div class="footer">
       <div class="footer-text">
         <i class="iconfont icon-wancheng"></i>
@@ -32,11 +34,15 @@
 </template>
 
 <script>
+import Son1 from './host-son/son1'
 export default {
   data(){
     return {
       val:''
     }
+  },
+  components:{
+    Son1
   },
   methods:{
     click(){
