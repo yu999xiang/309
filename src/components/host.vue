@@ -13,13 +13,16 @@
       <i class="iconfont icon-loudou" :showIcon="true" @click="showPopup"></i>
     </div>
     <div class="top">
-      <div class="active every">全部</div>
-      <div class="every">未申报</div>
-      <div class="every">待审核</div>
+      <div @click="num = 0" class="active every">全部</div>
+      <div @click="num = 1" class="every">未申报</div>
+      <div @click="num = 2" class="every">待审核</div>    </div>
+    <div id="main">
+      <Son1 v-show="num === 0"/>
+      <Son2 v-show="num === 1"/>
+      <Son3 v-show="num === 2"/>
     </div>
-    <div id="main"></div>
     <div class="footer">
-      <div class="footer-text">
+      <div class="footer-text" >
         <i class="iconfont icon-wancheng"></i>
         日常检查
       </div>
@@ -28,7 +31,7 @@
           <i class="iconfont icon-jia"></i>
         </div>
       </div>
-      <div class="footer-text">
+      <div class="footer-text" @click="fengkuan">
         <i class="iconfont icon-fengkuangdaqiqiu"></i>
         吊装作业
       </div>
@@ -78,9 +81,13 @@
 </template>
 
 <script>
+import Son1 from './host-son/son1'
+import Son2 from './host-son/son2'
+import Son3 from './host-son/son3'
 export default {
   data() {
     return {
+<<<<<<< HEAD
       val: "",
       show: false,
       page: {
@@ -129,6 +136,25 @@ export default {
     },
     sure(){
       this.show = false
+=======
+      val:'',
+      inputName: '',
+      num: 0
+    }
+  },
+  components:{
+    Son1,
+    Son2,
+    Son3
+  },
+  methods:{
+    click(){
+      this.$router.push({path:'/add'})
+    },
+    fengkuan(){
+      this.$router.push({path:'/operation'})
+
+>>>>>>> f7a4b9bdfaff26b2cb1edd8b8b82f2e22235b499
     }
   },
 };
@@ -162,8 +188,13 @@ export default {
         border-radius: 50px;
       }
     }
+<<<<<<< HEAD
     .iconfont {
       color: #f6f6f6;
+=======
+    .iconfont{
+      color: #9f9f9f;
+>>>>>>> f7a4b9bdfaff26b2cb1edd8b8b82f2e22235b499
     }
   }
   .top {

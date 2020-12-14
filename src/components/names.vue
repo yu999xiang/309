@@ -29,6 +29,7 @@ export default {
     clickEvnt(data) {
       sessionStorage.setItem('facilityCode', JSON.stringify(data.specification))
       sessionStorage.setItem('categoryCode', JSON.stringify(data.name + '  ' + data.specification))
+      sessionStorage.setItem('type', JSON.stringify(data.remark))
       this.$router.go(-1)
     },
     backPage(e) {
