@@ -35,6 +35,8 @@
     "less-loader": "^7.1.0",
     "postcss-pxtorem": "^5.1.1",
     "px2rem-loader": "^0.1.9",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0",
     "vue-template-compiler": "^2.6.11"
   }
 }
