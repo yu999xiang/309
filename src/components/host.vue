@@ -15,12 +15,8 @@
     <div class="top">
       <div @click="num = 0" class="active every">全部</div>
       <div @click="num = 1" class="every">未申报</div>
-<<<<<<< HEAD
       <div @click="num = 2" class="every">待审核</div>
     </div>
-=======
-      <div @click="num = 2" class="every">待审核</div>    </div>
->>>>>>> 8380c99834188a164728b4e744b9eb0e7ecb106f
     <div id="main">
       <Son1 v-show="num === 0"/>
       <Son2 v-show="num === 1"/>
@@ -86,13 +82,12 @@
 </template>
 
 <script>
-import Son1 from './host-son/son1'
-import Son2 from './host-son/son2'
-import Son3 from './host-son/son3'
+import Son1 from "./host-son/son1";
+import Son2 from "./host-son/son2";
+import Son3 from "./host-son/son3";
 export default {
   data() {
     return {
-<<<<<<< HEAD
       val: "",
       show: false,
       page: {
@@ -129,38 +124,22 @@ export default {
     click() {
       this.$router.push({ path: "/add" });
     },
+    fengkuan(){
+      this.$router.push({ path: "/operation" });
+    },
     showPopup() {
       this.show = true;
     },
     active(key) {
-      for(let i in this.page){
-      this.page[i].flag = false
+      for (let i in this.page) {
+        this.page[i].flag = false;
       }
-      this.val =  this.page[key].name
-      this.page[key].flag = true
+      this.val = this.page[key].name;
+      this.page[key].flag = true;
     },
-    sure(){
-      this.show = false
-=======
-      val:'',
-      inputName: '',
-      num: 0
-    }
-  },
-  components:{
-    Son1,
-    Son2,
-    Son3
-  },
-  methods:{
-    click(){
-      this.$router.push({path:'/add'})
+    sure() {
+      this.show = false;
     },
-    fengkuan(){
-      this.$router.push({path:'/operation'})
-
->>>>>>> f7a4b9bdfaff26b2cb1edd8b8b82f2e22235b499
-    }
   },
 };
 </script>
@@ -193,13 +172,8 @@ export default {
         border-radius: 50px;
       }
     }
-<<<<<<< HEAD
     .iconfont {
       color: #f6f6f6;
-=======
-    .iconfont{
-      color: #9f9f9f;
->>>>>>> f7a4b9bdfaff26b2cb1edd8b8b82f2e22235b499
     }
   }
   .top {
