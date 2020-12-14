@@ -18,11 +18,13 @@
       <div @click="num = 2" class="every">待审核</div>
     </div>
     <div id="main">
-      <Son1 />
+      <Son1 v-if="num === 0" />
+      <Son2 v-if="num === 1" />
+      <Son3 v-if="num === 2" />
       
     </div>
     <div class="footer">
-      <div class="footer-text" >
+      <div class="footer-text" @click="wancheng" >
         <i class="iconfont icon-wancheng"></i>
         日常检查
       </div>
@@ -135,6 +137,11 @@ export default {
     },
     sure(){
       this.show = false
+    },
+    wancheng(){
+      this.$router.push({
+        path:'/routine'
+      })
     }
   },
 };
