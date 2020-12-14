@@ -15,7 +15,7 @@
     <div id="main"></div>
     <div class="footer">
       <div class="footer-text" @click="routione">
-        <i class="iconfont icon-wancheng"></i>
+        <i class="iconfont icon-wancheng" ></i>
         日常检查
       </div>
       <div class="circle">
@@ -43,6 +43,7 @@ export default {
       this.$router.push({path:'/add'})
     },
     routione(){
+      // console.log(12345);
       this.$router.push({ name: 'routine', params: { userId: '123' }})
     }
   }
