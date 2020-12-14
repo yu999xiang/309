@@ -18,7 +18,11 @@
       <Son3 v-show="num === 2"/>
     </div>
     <div class="footer">
+<<<<<<< HEAD
       <div class="footer-text" >
+=======
+      <div class="footer-text" @click="routione">
+>>>>>>> 203d7a84db2f2a2e123c221b8ba132951d471bdc
         <i class="iconfont icon-wancheng"></i>
         日常检查
       </div>
@@ -56,9 +60,14 @@ export default {
     click(){
       this.$router.push({path:'/add'})
     },
+<<<<<<< HEAD
     fengkuan(){
       this.$router.push({path:'/operation'})
 
+=======
+    routione(){
+      this.$router.push({ name: 'routine', params: { userId: '123' }})
+>>>>>>> 203d7a84db2f2a2e123c221b8ba132951d471bdc
     }
   }
 }
