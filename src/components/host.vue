@@ -137,15 +137,9 @@ export default {
       this.val = this.page[key].name;
       this.page[key].flag = true;
     },
-<<<<<<< HEAD
     sure() {
       this.show = false;
     },
-=======
-    sure(){
-      this.show = false
-    }
->>>>>>> 3adbce47d3e0bd1f27e565ee01c3cb50a58f888e
   },
 };
 </script>
