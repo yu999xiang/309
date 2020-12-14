@@ -74,7 +74,7 @@
       </div>
       <nut-buttongroup style="position:absolute,bottom:0">
         <nut-button type="light" style="background: #eee"> 重置 </nut-button>
-        <nut-button @click="sure"> 确定 </nut-button>
+        <nut-button> 确定 </nut-button>
       </nut-buttongroup>
     </nut-popup>
   </div>
@@ -87,7 +87,6 @@ import Son3 from './host-son/son3'
 export default {
   data() {
     return {
-<<<<<<< HEAD
       val: "",
       show: false,
       page: {
@@ -124,9 +123,11 @@ export default {
     click() {
       this.$router.push({ path: "/add" });
     },
+
     showPopup() {
       this.show = true;
     },
+
     active(key) {
       for(let i in this.page){
       this.page[i].flag = false
@@ -134,28 +135,17 @@ export default {
       this.val =  this.page[key].name
       this.page[key].flag = true
     },
-    sure(){
-      this.show = false
-=======
-      val:'',
-      inputName: '',
-      num: 0
+    click(){
+      this.$router.push({path:'/add'})
+    },
+    fengkuan(){
+      this.$router.push({path:'/operation'})
     }
   },
   components:{
     Son1,
     Son2,
     Son3
-  },
-  methods:{
-    click(){
-      this.$router.push({path:'/add'})
-    },
-    fengkuan(){
-      this.$router.push({path:'/operation'})
-
->>>>>>> f7a4b9bdfaff26b2cb1edd8b8b82f2e22235b499
-    }
   },
 };
 </script>
@@ -188,13 +178,10 @@ export default {
         border-radius: 50px;
       }
     }
-<<<<<<< HEAD
     .iconfont {
       color: #f6f6f6;
-=======
     .iconfont{
       color: #9f9f9f;
->>>>>>> f7a4b9bdfaff26b2cb1edd8b8b82f2e22235b499
     }
   }
   .top {
@@ -348,5 +335,6 @@ export default {
     bottom: 30px !important;
     left: 0;
   }
+}
 }
 </style>
