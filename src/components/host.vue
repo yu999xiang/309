@@ -148,7 +148,10 @@ export default {
       this.$router.push({
         path:'/routine'
       })
-    }
+    },
+    fengkuan(){
+      
+    },
   },
 };
 </script>
