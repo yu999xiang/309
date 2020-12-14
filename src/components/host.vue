@@ -3,9 +3,14 @@
     <div class="search">
       <i class="iconfont icon-saomiao"></i>
       <div class="search-main">
-        <input type="text" class="search-arr" placeholder="搜索机械名称/规格型号/项目设备编码">
+        <input
+          type="text"
+          class="search-arr"
+          placeholder="搜索机械名称/规格型号/项目设备编码"
+          :value="val"
+        />
       </div>
-      <i class="iconfont icon-loudou"></i>
+      <i class="iconfont icon-loudou" :showIcon="true" @click="showPopup"></i>
     </div>
     <div class="top">
       <div class="active every">全部</div>
@@ -28,42 +33,125 @@
         吊装作业
       </div>
     </div>
+    <nut-popup
+      :style="{ padding: '30px 50px', height: '100%', width: '60%' }"
+      v-model="show"
+      position="right"
+    >
+      <div class="hostList">
+        状态
+        <ul>
+          <li
+            v-for="(item,key) in page"
+            :key="key"
+            :class="item.flag ? 'active' : ''"
+            @click="active(key)"
+          >
+            {{ item.name }}
+          </li>
+        </ul>
+        属性
+        <ul>
+          <li
+            v-for="item in arr1"
+            :key="item"
+          >
+            {{ item }}
+          </li>
+        </ul>
+        来源
+        <ul>
+          <li
+            v-for="item in arr2"
+            :key="item"
+          >
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+      <nut-buttongroup style="position:absolute,bottom:0">
+        <nut-button type="light" style="background: #eee"> 重置 </nut-button>
+        <nut-button @click="sure"> 确定 </nut-button>
+      </nut-buttongroup>
+    </nut-popup>
   </div>
 </template>
 
 <script>
 export default {
-  data(){
+  data() {
     return {
-      val:''
+      val: "",
+      show: false,
+      page: {
+        str: {
+          name: "未申报",
+          flag: false,
+        },
+        str1: {
+          name: "待审核",
+          flag: false,
+        },
+        str2: {
+          name: "使用中",
+          flag: false,
+        },
+        str3: {
+          name: "已停用",
+          flag: false,
+        },
+        str4: {
+          name: "正在维保",
+          flag: false,
+        },
+        str5: {
+          name: "已退场",
+          flag: false,
+        },
+      },
+      arr1: ["特种机械", "大型机械", "其他机械"],
+      arr2: ["自有", "租赁", "分包自带"],
+    };
+  },
+  methods: {
+    click() {
+      this.$router.push({ path: "/add" });
+    },
+    showPopup() {
+      this.show = true;
+    },
+    active(key) {
+      for(let i in this.page){
+      this.page[i].flag = false
+      }
+      this.val =  this.page[key].name
+      this.page[key].flag = true
+    },
+    sure(){
+      this.show = false
     }
   },
-  methods:{
-    click(){
-      this.$router.push({path:'/add'})
-    }
-  }
-}
+};
 </script>
 
 <style lang="less">
-#host{
+#host {
   width: 100%;
   height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   background: linear-gradient(to bottom, #2988fe, #fffffd);
-  .search{
+  .search {
     height: 40px;
     background: #fff;
     padding: 5px 0px;
     box-sizing: border-box;
     display: flex;
     justify-content: space-evenly;
-    .search-main{
+    .search-main {
       width: 270px;
-      .search-arr{
+      .search-arr {
         width: 100%;
         height: 100%;
         padding: 0px 10px;
@@ -74,7 +162,7 @@ export default {
         border-radius: 50px;
       }
     }
-    .iconfont{
+    .iconfont {
       color: #f6f6f6;
     }
   }
@@ -82,10 +170,10 @@ export default {
     justify-content: space-evenly !important;
     margin: 0px !important;
     border-radius: 0px !important;
-    .active{
+    .active {
       border-bottom: 1px solid #2988fe;
     }
-    .every{
+    .every {
       flex: 1;
       height: 100%;
       display: flex;
@@ -169,20 +257,20 @@ export default {
       }
     }
   }
-  .footer{
+  .footer {
     height: 30px;
     background: #f6f6f6;
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
     color: #2988fe;
-    .footer-text{
+    .footer-text {
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .circle{
+    .circle {
       width: 50px;
       height: 50px;
       border-radius: 75px;
@@ -190,7 +278,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      .circle-main{
+      .circle-main {
         width: 40px;
         height: 40px;
         background: #2988fe;
@@ -200,8 +288,34 @@ export default {
         justify-content: center;
         align-items: center;
         font-size: 30px;
-      }    
       }
+    }
+  }
+  .hostList {
+    & > ul {
+      height: 100px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: space-around;
+      & > li {
+        width: 60px;
+        height: 20px;
+        background: #eee;
+        text-align: center;
+        line-height: 20px;
+        border-radius: 20px;
+      }
+      .active {
+        background: blue;
+        color: #fff;
+      }
+    }
+  }
+  .nut-buttongroup {
+    position: absolute !important;
+    bottom: 30px !important;
+    left: 0;
   }
 }
 </style>
