@@ -18,9 +18,9 @@
       <div @click="num = 2" class="every">待审核</div>
     </div>
     <div id="main">
-      <Son1 v-if="num === 0" />
-      <Son2 v-if="num === 1" />
-      <Son3 v-if="num === 2" />
+      <Son1 v-show="num === 0"/>
+      <Son2 v-show="num === 1"/>
+      <Son3 v-show="num === 2"/>
       
     </div>
     <div class="footer">
@@ -76,27 +76,23 @@
       </div>
       <nut-buttongroup style="position:absolute,bottom:0">
         <nut-button type="light" style="background: #eee"> 重置 </nut-button>
-        <nut-button @click="sure"> 确定 </nut-button>
+        <nut-button> 确定 </nut-button>
       </nut-buttongroup>
     </nut-popup>
   </div>
 </template>
 
 <script>
-import Son1 from '@/components/host-son/son1'
-import Son2 from '@/components/host-son/son2'
-import Son3 from '@/components/host-son/son3'
+import Son1 from "./host-son/son1";
+import Son2 from "./host-son/son2";
+import Son3 from "./host-son/son3";
 export default {
   data() {
     return {
-      components:{
-        Son1,
-        Son2,
-        Son3
-      },
-      num: 0,
-      val: "",
-      show: false,
+      val:'',
+      inputName: '',
+      num: 0 ,
+         show: false,
       page: {
         str: {
           name: "未申报",
@@ -126,6 +122,11 @@ export default {
       arr1: ["特种机械", "大型机械", "其他机械"],
       arr2: ["自有", "租赁", "分包自带"],
     };
+    },
+  components:{
+    Son1,
+    Son2,
+    Son3
   },
   methods: {
     click() {
@@ -134,24 +135,32 @@ export default {
     showPopup() {
       this.show = true;
     },
-    active(key) {
-      for(let i in this.page){
-      this.page[i].flag = false
-      }
-      this.val =  this.page[key].name
-      this.page[key].flag = true
-    },
-    sure(){
-      this.show = false
-    },
     wancheng(){
       this.$router.push({
-        path:'/routine'
+        path: '/routine'
       })
     },
-    fengkuan(){
-      
+    active(key) {
+      for (let i in this.page) {
+        this.page[i].flag = false;
+      }
+      this.val = this.page[key].name;
+      this.page[key].flag = true;
     },
+    click(){
+      this.$router.push({path:'/add'})
+    },
+    fengkuan(){
+      this.$router.push({path:'/operation'})
+    },
+    sure() {
+      this.show = false;
+    },
+  },
+  components:{
+    Son1,
+    Son2,
+    Son3
   },
 };
 </script>
@@ -184,10 +193,11 @@ export default {
         border-radius: 50px;
       }
     }
-    .iconfont {
-      color: #f6f6f6;
-    }
+    .iconfont{
+      color: #9f9f9f;
   }
+}
+
   .top {
     justify-content: space-evenly !important;
     margin: 0px !important;
@@ -280,6 +290,7 @@ export default {
     }
   }
   .footer {
+    z-index: 100;
     height: 30px;
     background: #f6f6f6;
     display: flex;
