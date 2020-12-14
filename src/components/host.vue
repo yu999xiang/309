@@ -83,9 +83,9 @@
 </template>
 
 <script>
-import Son1 from "./host-son/son1";
-import Son2 from "./host-son/son2";
-import Son3 from "./host-son/son3";
+import Son1 from "@/components/host-son/son1";
+import Son2 from "@/components/host-son/son2";
+import Son3 from "@/components/host-son/son3";
 export default {
   data() {
     return {
