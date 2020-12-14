@@ -7,7 +7,7 @@
         :rightShow="true"
         class="header"
         >日常检查
-        <i slot="back-icon" class="iconfont icon-zuo"></i>
+        <i slot="back-icon" class="iconfont icon-zuo" @click="tiaohui"></i>
         <i slot="more-icon" class="iconfont icon-202"></i>
       </nut-navbar>
       <div class="routine-top-foot">
@@ -42,6 +42,9 @@ export default {
     active2: function () {
       this.show = 2
     },
+    tiaohui(){
+         this.$router.go(-1);
+    }
   },
 }
 </script>
