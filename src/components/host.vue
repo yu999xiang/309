@@ -19,7 +19,7 @@
     </div>
     <div id="main">
       <Son1 v-show="num = 0"/>
-      <Son2 v-show="num = 1"/>  
+      <Son2 v-show="num = 1"/>
       <Son3 v-show="num = 2"/>
       
     </div>
