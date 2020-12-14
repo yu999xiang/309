@@ -157,7 +157,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import { mapState ,mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -178,6 +178,7 @@ export default {
         administrator: '',
         employName: '',
         dismantleName: '',
+        type: JSON.parse(sessionStorage.getItem('type')),
       },
       num: 0,
     }
@@ -193,6 +194,9 @@ export default {
     this.obj.employName = this.employName
   },
   methods: {
+    ...mapMutations({
+      setObj: 'setObj'
+    }),
     // 保存点击判断
     save(){
       if(!this.obj.categoryName){
@@ -209,6 +213,9 @@ export default {
         this.$notify.warn('实际进场日期为必选，请选择');
       }else if (!this.obj.employName){
         this.$notify.warn('使用单位为必选，请选择');
+      }else{
+        this.setObj(this.obj)
+        this.$router.go(-1)
       }
     },
     // 日历出现

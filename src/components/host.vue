@@ -12,9 +12,11 @@
       <div class="every">未申报</div>
       <div class="every">待审核</div>
     </div>
-    <div id="main"></div>
+    <div id="main">
+      
+    </div>
     <div class="footer">
-      <div class="footer-text">
+      <div class="footer-text" >
         <i class="iconfont icon-wancheng"></i>
         日常检查
       </div>
@@ -35,13 +37,14 @@
 export default {
   data(){
     return {
-      val:''
+      val:'',
+      inputName: ''
     }
   },
   methods:{
     click(){
       this.$router.push({path:'/add'})
-    }
+    },
   }
 }
 </script>
@@ -75,7 +78,7 @@ export default {
       }
     }
     .iconfont{
-      color: #f6f6f6;
+      color: #9f9f9f;
     }
   }
   .top {

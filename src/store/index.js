@@ -8,7 +8,8 @@ export default new Vuex.Store({
     id: 0,
     name: '',
     fromName: '',
-    num: ''
+    num: '',
+    obj: {},
   },
   mutations: {
     setid(state,code){
@@ -22,6 +23,9 @@ export default new Vuex.Store({
     },
     setNum(state,name){
       state.num = name
+    },
+    setObj(state,data){
+      state.obj = data
     }
   },
   actions: {
