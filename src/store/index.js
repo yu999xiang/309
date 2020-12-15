@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    aaaa: '于莹莹',
     id: 0,
     name: '',
     fromName: '',
